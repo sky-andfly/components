@@ -1,2 +1,7 @@
 <?php
-echo 1111;
+require_once '../vendor/autoload.php';
+
+use Aura\SqlQuery\QueryFactory;
+
+$queryFactory = new QueryFactory('mysql');
+

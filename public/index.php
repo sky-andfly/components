@@ -6,5 +6,4 @@ use League\Plates\Engine;
 
 $templates = new Engine('../app/templates');
 
-// Render a template
-echo $templates->render('about', ['name' => 'phplivesmater']);
+d($templates);

@@ -28,6 +28,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'kint-php/kint' => array(
+            'pretty_version' => '4.1.3',
+            'version' => '4.1.3.0',
+            'reference' => '055630e77a9ae625968ade09addb0bd57ce1f4b3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../kint-php/kint',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'league/plates' => array(
             'pretty_version' => 'v3.4.0',
             'version' => '3.4.0.0',

@@ -2,5 +2,5 @@
 use App\QueryBuilder;
 
 $db = new QueryBuilder();
-$db->insert('tasks', ['title' => 'lox', 'text' =>'lllllllooooooxxxx']);
+$db->update('tasks', 7, ['text' => 'yовый текст']);
 

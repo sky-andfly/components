@@ -38,15 +38,20 @@ class QueryBuilder{
     public function deleteFromId($table, $id){
         $delete = $this->queryFactory->newDelete();
 
-        $delete
-            ->from(table)                   // FROM this table
-            ->where('zim = :zim')           // AND WHERE these conditions
-            ->orWhere('gir = :gir')         // OR WHERE these conditions
-            ->bindValue('bar', 'bar_val')   // bind one value to a placeholder
-            ->bindValues([                  // bind these values to the query
-                'baz' => 99,
-                'zim' => 'dib',
-                'gir' => 'doom',
-            ]);
+        $delete->from($table)->where('id = :id')->bindValue('id',$id);
+        $sth = $this->pdo->prepare($delete->getStatement());
+        $sth->execute($delete->getBindValues());
+    }
+    // todo create find
+    public function update($table, $id, $data){
+        $update = $this->queryFactory->newUpdate();
+        $update
+            ->table($table)
+            ->cols($data)
+            ->where('id = :id')
+            ->bindValue('id', $id);
+
+        $sth = $this->pdo->prepare($update->getStatement());
+        $sth->execute($update->getBindValues());
     }
 }

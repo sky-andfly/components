@@ -10,6 +10,7 @@ class ComposerStaticInit1b6e15eec935eabd8bb670297f8842c3
         'A' => 
         array (
             'Aura\\SqlQuery\\' => 14,
+            'App\\' => 4,
         ),
     );
 
@@ -18,9 +19,14 @@ class ComposerStaticInit1b6e15eec935eabd8bb670297f8842c3
         array (
             0 => __DIR__ . '/..' . '/aura/sqlquery/src',
         ),
+        'App\\' => 
+        array (
+            0 => '/app',
+        ),
     );
 
     public static $classMap = array (
+        'App\\QueryBuilder' => __DIR__ . '/../..' . '/app/QueryBuilder.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 

@@ -1,7 +1,9 @@
 <?php
 require_once '../vendor/autoload.php';
+session_start();
 
-use Aura\SqlQuery\QueryFactory;
-
-$queryFactory = new QueryFactory('mysql');
+if ($_SERVER['REQUEST_URI'] == '/home'){
+    require_once "../app/controllers/homepage.php";
+}
+exit;
 

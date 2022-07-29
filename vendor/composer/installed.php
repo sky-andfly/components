@@ -46,5 +46,14 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'tamtamchik/simple-flash' => array(
+            'pretty_version' => '2.0.1',
+            'version' => '2.0.1.0',
+            'reference' => '62fc3d59df2cc5bbd746af25f488b76585362c45',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../tamtamchik/simple-flash',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
     ),
 );

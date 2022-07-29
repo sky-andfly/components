@@ -1,9 +1,10 @@
 <?php
 require_once '../vendor/autoload.php';
-session_start();
 
-if ($_SERVER['REQUEST_URI'] == '/home'){
-    require_once "../app/controllers/homepage.php";
-}
-exit;
+use League\Plates\Engine;
 
+
+$templates = new Engine('../app/templates');
+
+// Render a template
+echo $templates->render('about', ['name' => 'phplivesmater']);

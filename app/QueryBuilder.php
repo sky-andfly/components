@@ -9,7 +9,7 @@ class QueryBuilder{
     private $queryFactory;
     public function __construct()
     {
-        $this->pdo =  new PDO("mysql:host=localhost;dbname=simple;charset=utf8", "root", "root");
+        $this->pdo =  new PDO("mysql:host=localhost;dbname=coral;charset=utf8", "root", "root");
         $this->queryFactory = new QueryFactory('mysql');
     }
 

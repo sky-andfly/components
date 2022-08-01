@@ -2,21 +2,42 @@
 if( !session_id() ) @session_start();
 require_once '../vendor/autoload.php';
 
-flash()->message('Hot!', 'success');
-flash()->message('Hot!', 'error');
-?>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <title>Document</title>
-</head>
-<body>
-<?=flash()->display();?>
-</body>
-</html>
+
+$dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
+    $r->addRoute('GET', '/', ['App\controllers\indexController', 'main']);
+    $r->addRoute('GET', '/about', ['App\controllers\indexController', 'users']);
+    $r->addRoute('GET', '/users/{id:\d+}', ['App\controllers\indexController', 'users']);
+    // {id} must be a number (\d+)
+    $r->addRoute('GET', '/user/{id:\d+}/{group:\d+}', 'get_user_handler');
+    // The /{title} suffix is optional
+    $r->addRoute('GET', '/articles/{id:\d+}[/{title}]', 'get_article_handler');
+});
+
+// Fetch method and URI from somewhere
+$httpMethod = $_SERVER['REQUEST_METHOD'];
+$uri = $_SERVER['REQUEST_URI'];
+
+// Strip query string (?foo=bar) and decode URI
+if (false !== $pos = strpos($uri, '?')) {
+    $uri = substr($uri, 0, $pos);
+}
+$uri = rawurldecode($uri);
+
+$routeInfo = $dispatcher->dispatch($httpMethod, $uri);
+switch ($routeInfo[0]) {
+    case FastRoute\Dispatcher::NOT_FOUND:
+        echo 404;
+        break;
+    case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
+        $allowedMethods = $routeInfo[1];
+        // ... 405 Method Not Allowed
+        break;
+    case FastRoute\Dispatcher::FOUND:
+        $handler = $routeInfo[1];
+        $vars = $routeInfo[2];
+        $controller = new  $handler[0];
+        call_user_func([$controller, $handler[1]], $vars);
+
+        break;
+}

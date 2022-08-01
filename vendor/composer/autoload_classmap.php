@@ -7,5 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\QueryBuilder' => $baseDir . '/app/QueryBuilder.php',
+    'App\\controllers\\indexController' => $baseDir . '/app/controllers/indexController.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );

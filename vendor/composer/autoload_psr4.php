@@ -9,6 +9,8 @@ return array(
     'Tamtamchik\\SimpleFlash\\' => array($vendorDir . '/tamtamchik/simple-flash/src'),
     'League\\Plates\\' => array($vendorDir . '/league/plates/src'),
     'Kint\\' => array($vendorDir . '/kint-php/kint/src'),
+    'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
     'Aura\\SqlQuery\\' => array($vendorDir . '/aura/sqlquery/src'),
+    'App\\controllers\\' => array('/app/controllers'),
     'App\\' => array('/app'),
 );

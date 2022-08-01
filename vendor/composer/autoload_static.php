@@ -8,6 +8,7 @@ class ComposerStaticInit1b6e15eec935eabd8bb670297f8842c3
 {
     public static $files = array (
         '3917c79c5052b270641b5a200963dbc2' => __DIR__ . '/..' . '/kint-php/kint/init.php',
+        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         '6157b075b923803e5ef157aeb43b83bd' => __DIR__ . '/..' . '/tamtamchik/simple-flash/src/function.php',
     );
 
@@ -24,9 +25,14 @@ class ComposerStaticInit1b6e15eec935eabd8bb670297f8842c3
         array (
             'Kint\\' => 5,
         ),
+        'F' => 
+        array (
+            'FastRoute\\' => 10,
+        ),
         'A' => 
         array (
             'Aura\\SqlQuery\\' => 14,
+            'App\\controllers\\' => 16,
             'App\\' => 4,
         ),
     );
@@ -44,9 +50,17 @@ class ComposerStaticInit1b6e15eec935eabd8bb670297f8842c3
         array (
             0 => __DIR__ . '/..' . '/kint-php/kint/src',
         ),
+        'FastRoute\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nikic/fast-route/src',
+        ),
         'Aura\\SqlQuery\\' => 
         array (
             0 => __DIR__ . '/..' . '/aura/sqlquery/src',
+        ),
+        'App\\controllers\\' => 
+        array (
+            0 => '/app/controllers',
         ),
         'App\\' => 
         array (
@@ -56,6 +70,7 @@ class ComposerStaticInit1b6e15eec935eabd8bb670297f8842c3
 
     public static $classMap = array (
         'App\\QueryBuilder' => __DIR__ . '/../..' . '/app/QueryBuilder.php',
+        'App\\controllers\\indexController' => __DIR__ . '/../..' . '/app/controllers/indexController.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
